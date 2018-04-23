@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<States>
+  <State ID="0" Name="Incomplete" />
+  <State ID="1" Name="Labels missing" />
+  <State ID="2" Name="Complete" />
+  <State ID="3" Name="Sent" />
+  <State ID="4" Name="Released" />
+</States>

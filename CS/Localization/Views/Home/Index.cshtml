@@ -1,0 +1,61 @@
+@model Localization.Models.Data
+@using Localization.Models
+@{System.Xml.Linq.XDocument obj = System.Xml.Linq.XDocument.Load(LocalizerHelper.GetPath());}
+<h2>@LocalizationText.HomePageTitle</h2>
+
+@using (Html.BeginForm("Post", "Home", FormMethod.Post))
+{ 
+    @Html.DevExpress().TextBox(
+    settings =>
+    {
+        settings.Name = "Name";
+        settings.Width = 200;
+        settings.ShowModelErrors = true;
+        settings.Properties.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.ImageWithText;
+    }).Bind(Model.Name).GetHtml()
+    @Html.DevExpress().RadioButtonList(rs =>
+    {
+        rs.Name = "rb1";
+        rs.Properties.ValueField = "ID";
+        rs.Properties.TextField = "Name";
+        rs.Properties.ValueType = typeof(int);
+
+    }).BindToXML(LocalizerHelper.GetPath(), "//State").GetHtml();
+    @Html.DevExpress().ComboBox(cmbs =>
+{
+    cmbs.Name = "combo1";
+    cmbs.Properties.ValueField = "ID";
+    cmbs.Properties.TextField = "Name";
+    cmbs.Properties.ValueType = typeof(int);
+
+}).BindList(obj.Descendants("State").Select(x => new
+{
+    ID = x.Attribute("ID").Value,
+    Name = x.Attribute("Name").Value
+})).GetHtml();
+    @Html.DevExpress().ComboBox(cmbs =>
+{
+    cmbs.Name = "combo2";
+    cmbs.Properties.ValueField = "ID";
+    cmbs.Properties.TextField = "Name";
+    cmbs.PreRender = (s, e) =>
+    {
+        MVCxComboBox combo = s as MVCxComboBox;
+        foreach (ListEditItem item in combo.Items)
+        {
+            var newText = LocalizerHelper.GetLocalizedText(item.Text);
+            item.Text = newText;
+        }
+
+    };
+    cmbs.Properties.ValueType = typeof(int);
+}).BindList(Data.GetTestData()).GetHtml()
+    @Html.DevExpress().Button(
+    settings =>
+    {
+        settings.Name = "Submit";
+        settings.Text = "Submit";
+        settings.UseSubmitBehavior = true;
+    }).GetHtml()
+  
+}

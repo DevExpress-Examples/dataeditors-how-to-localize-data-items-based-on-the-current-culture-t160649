@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<States>
+<State ID = "0" Name = "Unvollständig" />
+   <State ID = "1" Name = "Fehlende Etiketten" />
+   <State ID = "2" Name = "Komplette" />
+   <State ID = "3" Name = "Gesendet" />
+   <State ID = "4" Name = "Freigegeben" />
+</States>
