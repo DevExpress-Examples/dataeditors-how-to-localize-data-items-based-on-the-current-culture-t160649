@@ -1,3 +1,11 @@
+<!-- default file list -->
+*Files to look at*:
+
+* [HomeController.cs](./CS/Localization/Controllers/HomeController.cs) (VB: [HomeController.vb](./VB/Localization/Controllers/HomeController.vb))
+* [Data.cs](./CS/Localization/Models/Data.cs) (VB: [Data.vb](./VB/Localization/Models/Data.vb))
+* **[Index.cshtml](./CS/Localization/Views/Home/Index.cshtml)**
+* [_Layout.cshtml](./CS/Localization/Views/Shared/_Layout.cshtml)
+<!-- default file list end -->
 # DataEditors - How to localize data items  based on the current culture
 
 
