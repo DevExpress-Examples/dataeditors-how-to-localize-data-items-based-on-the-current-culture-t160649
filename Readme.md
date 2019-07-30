@@ -8,7 +8,7 @@
 <!-- default file list end -->
 # DataEditors - How to localize data items  based on the current culture
 <!-- run online -->
-**[[Run Online]](https://codecentral.devexpress.com/t160649)**
+**[[Run Online]](https://codecentral.devexpress.com/t160649/)**
 <!-- run online end -->
 
 
